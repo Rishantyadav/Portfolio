@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishant's Portfolio - web developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #06b6d4;
+            --primary-light: #0ea5e9;
+            --dark: #111827;
+            --dark-light: #1f2937;
+            --light: #f3f4f6;
+            --text: #d1d5db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header styles */
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--dark-light);
+            border-radius: 8px;
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text);
+            position: relative;
+        }
+
+        nav a.active {
+            color: var(--primary);
+        }
+
+        nav a.active:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        /* Hero section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 3rem 0;
+            gap: 3rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: translateY(-10px);
+        }
+
+        .hero-image:before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary);
+            border-radius: 16px;
+            z-index: 0;
+            transition: all 0.3s ease;
+        }
+
+        .hero-image:hover:before {
+            top: 5px;
+            left: 5px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2.5rem;
+            color: white;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 3px;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .hashtag {
+            background-color: rgba(6, 182, 212, 0.1);
+            color: var(--primary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .hashtag:hover {
+            background-color: rgba(6, 182, 212, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Tools section */
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tool-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--dark-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tool-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .tool-tag i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* Contribution graph */
+        .contribution-graph {
+            margin: 3rem 0;
+        }
+
+        .months {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .graph {
+            display: grid;
+            grid-template-columns: repeat(52, 1fr);
+            gap: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .day {
+            width: 15px;
+            height: 15px;
+            border-radius: 2px;
+            background-color: var(--dark-light);
+            transition: all 0.3s ease;
+        }
+
+        .day:hover {
+            transform: scale(1.2);
+        }
+
+        .level-1 {
+            background-color: rgba(6, 182, 212, 0.2);
+        }
+
+        .level-2 {
+            background-color: rgba(6, 182, 212, 0.4);
+        }
+
+        .level-3 {
+            background-color: rgba(6, 182, 212, 0.6);
+        }
+
+        .level-4 {
+            background-color: rgba(6, 182, 212, 0.8);
+        }
+
+        .level-5 {
+            background-color: var(--primary);
+        }
+
+        .graph-legend {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* Projects section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .project-card {
+            background-color: var(--dark-light);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            font-size: 0.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            background-color: rgba(6, 182, 212, 0.1);
+            color: var(--primary);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        /* Contact section */
+        .cta {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background-color: var(--dark-light);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            margin-top: 0;
+            display: inline-block;
+        }
+
+        .contact-section h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+        }
+
+        .contact-section p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid var(--dark-light);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-link {
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+            }
+
+            .hero-image {
+                margin-bottom: 2rem;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- <a href="#" class="logo">Home</a> -->
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#blog">Connect</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="hero fade-in">
+            <div class="hero-content">
+                <h1>Rishant Yadav <span style="font-size: 0.8em; opacity: 0.8;"></span></h1>
+                
+                <div style="margin: 1.5rem 0;">
+                    <h3 style="color: #e5e7eb; font-size: 1.2rem; margin-bottom: 0.5rem;">About Me</h3>
+                    <p>Hello! I'm a developer from India. I enjoy programming and exploring technology.</p>
+                    <!-- //<p>I've participated in <span class="highlight">15+ hackathons</span> & ideathons and won 6 of them.</p> -->
+                </div>
+                
+                <div style="margin: 1.5rem 0;">
+                    <h3 style="color: #e5e7eb; font-size: 1.2rem; margin-bottom: 0.5rem;">What I do?</h3>
+                    <p>Currently i am pursuing my BTech degree in computer engineering. I'm very active on X where I share <span class="hashtag">#BuildInPublic</span>.</p>
+                </div>
+                
+                <p>When not coding, I read books, go out for a run or binge YouTube.</p>
+                
+                <p>I'm <span class="highlight">open to work</span>, freelance, or collaborate. <a href="#contact">Contact Me.</a></p>
+            </div>
+            
+            <div class="hero-image">
+                <img src="profile-image.jpg" alt="Your profile" />
+            </div>
+        </section>
+
+        <section class="fade-in" id="tools">
+            <h2>Tools that I have used</h2>
+            <div class="tools-container">
+                <div class="tool-tag"><i class="fab fa-python"></i> Python</div>
+                <div class="tool-tag"><i class="fab fa-js"></i> JavaScript</div>
+                <div class="tool-tag"><i class="fab fa-react"></i> React.js</div>
+                <div class="tool-tag"><i class="fab fa-node"></i> Node.js</div>
+                <div class="tool-tag"><i class="fab fa-html5"></i> HTML</div>
+                <div class="tool-tag"><i class="fab fa-css3-alt"></i> CSS</div>
+                <div class="tool-tag"><i class="fab fa-bootstrap"></i> Tailwind</div>
+                <div class="tool-tag"><i class="fab fa-aws"></i> AWS</div>
+                <div class="tool-tag"><i class="fas fa-database"></i> MongoDB</div>
+                <div class="tool-tag"><i class="fas fa-database"></i> PostgreSQL</div>
+                <div class="tool-tag"><i class="fab fa-docker"></i> Docker</div>
+                <div class="tool-tag"><i class="fab fa-git-alt"></i> Git</div>
+                <div class="tool-tag"><i class="fab fa-linux"></i> Linux</div>
+                <div class="tool-tag"><i class="fas fa-fire"></i> Firebase</div>
+                <div class="tool-tag"><i class="fas fa-robot"></i> AI</div>
+            </div>
+        </section>
+
+        <section class="contribution-graph fade-in">
+            <div class="months">
+                <span>Mar</span>
+                <span>Apr</span>
+                <span>May</span>
+                <span>Jun</span>
+                <span>Jul</span>
+                <span>Aug</span>
+                <span>Sep</span>
+                <span>Oct</span>
+                <span>Nov</span>
+                <span>Dec</span>
+                <span>Jan</span>
+                <span>Feb</span>
+            </div>
+            <div class="graph" id="contributionGraph"></div>
+            <div class="graph-legend">
+                <span>100 contributions in the last year</span>
+                <span class="legend-item">
+                    <span>Less</span>
+                    <div class="day"></div>
+                    <div class="day level-1"></div>
+                    <div class="day level-2"></div>
+                    <div class="day level-3"></div>
+                    <div class="day level-4"></div>
+                    <span>More</span>
+                </span>
+            </div>
+        </section>
+
+        <section class="fade-in" id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="tic-tac-toe-image.jpg" alt="Tic Tac Toe" />
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Tic Tac Toe Game</div>
+                        <div class="project-description">
+                            A two-player web-based Tic-Tac-Toe game with intuitive gameplay and a responsive design.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://rishantyadav.github.io/Tic-Tac-Toe-Game/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                            <a href="https://github.com/Rishantyadav/Tic-Tac-Toe-Game" class="project-link"><i class="fab fa-github"></i> Repo URL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="rock-paper-scissors-image.jpg" alt="Project 2" />
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Stone Paper Scissor Game</div>
+                        <div class="project-description">
+                            A classic hand game built with JavaScript, featuring interactive UI and real-time score tracking.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://rishantyadav.github.io/Rock-Paper-Scissors-Game/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                            <a href="https://github.com/Rishantyadav/Rock-Paper-Scissors-Game" class="project-link"><i class="fab fa-github"></i> Repo URL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="amazon-page-image.png" alt="Project 3" />
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Amazon Clone</div>
+                        <div class="project-description">
+                            A homepage replica of Amazon, built with HTML & CSS, showcasing a modern and responsive UI.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://rishantyadav.github.io/Amazon-Clone/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                            <a href="https://github.com/Rishantyadav/Amazon-Clone" class="project-link"><i class="fab fa-github"></i> Repo URL</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="tic-tac-toe-image.jpg" alt="Tic Tac Toe" />
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Tic Tac Toe Game</div>
+                        <div class="project-description">
+                            A two-player web-based Tic-Tac-Toe game with intuitive gameplay and a responsive design.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://rishantyadav.github.io/Tic-Tac-Toe-Game/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                            <a href="https://github.com/Rishantyadav/Tic-Tac-Toe-Game" class="project-link"><i class="fab fa-github"></i> Repo URL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="rock-paper-scissors-image.jpg" alt="Project 2" />
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Stone Paper Scissor Game</div>
+                        <div class="project-description">
+                            A classic hand game built with JavaScript, featuring interactive UI and real-time score tracking.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://rishantyadav.github.io/Rock-Paper-Scissors-Game/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                            <a href="https://github.com/Rishantyadav/Rock-Paper-Scissors-Game" class="project-link"><i class="fab fa-github"></i> Repo URL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="amazon-page-image.png" alt="Project 3" />
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Amazon Clone</div>
+                        <div class="project-description">
+                            A homepage replica of Amazon, built with HTML & CSS, showcasing a modern and responsive UI.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://rishantyadav.github.io/Amazon-Clone/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                            <a href="https://github.com/Rishantyadav/Amazon-Clone" class="project-link"><i class="fab fa-github"></i> Repo URL</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section fade-in" id="contact">
+            <h2>Let's Connect</h2>
+            <p>I'm currently available for freelance work, collaborations, or job opportunities. If you have a project that needs my skills or just want to say hi, feel free to reach out!</p>
+            <a href="mailto:rishant6166@gmail.com" class="cta">Get In Touch</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/Rishantyadav" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/kianntwt" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/rishantyadav/" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="https://leetcode.com/u/rishantyadav/" class="social-link"><i class="fab fa-leetcode"></i></a>
+        </div>
+        <p>© 2025 Rishant Yadav. All rights reserved.</p>
+    </footer>
+
+    <script>
+        
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkFade() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        
+        checkFade();
+        
+        
+        window.addEventListener('scroll', checkFade);
+        
+        
+        const contributionGraph = document.getElementById('contributionGraph');
+        
+        
+        for (let i = 0; i < 364; i++) {
+            const day = document.createElement('div');
+            day.classList.add('day');
+            
+            
+            const dayOfWeek = i % 7;
+            const randomFactor = Math.random();
+            
+            if (randomFactor > 0.7 && (dayOfWeek < 5)) {
+                const level = Math.floor(randomFactor * 5) + 1;
+                if (level > 0) {
+                    day.classList.add(`level-${level}`);
+                }
+            } else if (randomFactor > 0.85) {
+                const level = Math.floor(randomFactor * 3) + 1;
+                if (level > 0) {
+                    day.classList.add(`level-${level}`);
+                }
+            }
+            
+            contributionGraph.appendChild(day);
+        }
+    </script>
+</body>
+</html>
