@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishant's Portfolio - web developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#social-connect">Connect</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="hero fade-in">
+            <div class="hero-content">
+                <h1>Rishant Yadav <span style="font-size: 0.8em; opacity: 0.8;"></span></h1>
+                
+                <div style="margin: 1.5rem 0;">
+                    <h3 style="color: #e5e7eb; font-size: 1.2rem; margin-bottom: 0.5rem;">About Me</h3>
+                    <p>Hello! I'm a developer from India. I enjoy programming and exploring technology.</p>
+                </div>
+                
+                <div style="margin: 1.5rem 0;">
+                    <h3 style="color: #e5e7eb; font-size: 1.2rem; margin-bottom: 0.5rem;">What I do?</h3>
+                    <p>Currently i am pursuing my BTech degree in computer engineering. I'm very active on X where I share <span class="hashtag">#BuildInPublic</span>.</p>
+                </div>
+                
+                <p>When not coding, I read books, go out for a run or binge YouTube.</p>
+                
+                <p>I'm <span class="highlight">open to work</span>, freelance, or collaborate. <a href="#contact">Contact Me.</a></p>
+            </div>
+            
+            <div class="hero-image">
+                <img src="profile-image.jpg" alt="Your profile" />
+            </div>
+        </section>
+
+        <section class="fade-in" id="tools">
+            <h2>Tools that I have used</h2>
+            <div class="tools-container">
+                <div class="tool-tag"><i class="fab fa-python"></i> Python</div>
+                <div class="tool-tag"><i class="fab fa-js"></i> JavaScript</div>
+                <div class="tool-tag"><i class="fab fa-react"></i> React.js</div>
+                <div class="tool-tag"><i class="fab fa-node"></i> Node.js</div>
+                <div class="tool-tag"><i class="fab fa-html5"></i> HTML</div>
+                <div class="tool-tag"><i class="fab fa-css3-alt"></i> CSS</div>
+                <div class="tool-tag"><i class="fab fa-bootstrap"></i> Tailwind</div>
+                <div class="tool-tag"><i class="fab fa-aws"></i> AWS</div>
+                <div class="tool-tag"><i class="fas fa-database"></i> MongoDB</div>
+                <div class="tool-tag"><i class="fas fa-database"></i> PostgreSQL</div>
+                <div class="tool-tag"><i class="fab fa-docker"></i> Docker</div>
+                <div class="tool-tag"><i class="fab fa-git-alt"></i> Git</div>
+                <div class="tool-tag"><i class="fab fa-linux"></i> Linux</div>
+                <div class="tool-tag"><i class="fas fa-fire"></i> Firebase</div>
+                <div class="tool-tag"><i class="fas fa-robot"></i> AI</div>
+            </div>
+        </section>
+
+        <section class="contribution-graph fade-in">
+            <div class="months">
+                <span>Mar</span>
+                <span>Apr</span>
+                <span>May</span>
+                <span>Jun</span>
+                <span>Jul</span>
+                <span>Aug</span>
+                <span>Sep</span>
+                <span>Oct</span>
+                <span>Nov</span>
+                <span>Dec</span>
+                <span>Jan</span>
+                <span>Feb</span>
+            </div>
+            <div class="graph" id="contributionGraph"></div>
+            <div class="graph-legend">
+                <span>100 contributions in the last year</span>
+                <span class="legend-item">
+                    <span>Less</span>
+                    <div class="day"></div>
+                    <div class="day level-1"></div>
+                    <div class="day level-2"></div>
+                    <div class="day level-3"></div>
+                    <div class="day level-4"></div>
+                    <span>More</span>
+                </span>
+            </div>
+        </section>
+
+        <section class="fade-in" id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="tic-tac-toe-image.jpg" alt="Tic Tac Toe" />
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Tic Tac Toe Game</div>
+                        <div class="project-description">
+                            A two-player web-based Tic-Tac-Toe game with intuitive gameplay and a responsive design.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://rishantyadav.github.io/Tic-Tac-Toe-Game/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                            <a href="https://github.com/Rishantyadav/Tic-Tac-Toe-Game" class="project-link"><i class="fab fa-github"></i> Repo URL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="rock-paper-scissors-image.jpg" alt="Project 2" />
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Stone Paper Scissor Game</div>
+                        <div class="project-description">
+                            A classic hand game built with JavaScript, featuring interactive UI and real-time score tracking.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://rishantyadav.github.io/Rock-Paper-Scissors-Game/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                            <a href="https://github.com/Rishantyadav/Rock-Paper-Scissors-Game" class="project-link"><i class="fab fa-github"></i> Repo URL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="amazon-page-image.png" alt="Project 3" />
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Amazon Clone</div>
+                        <div class="project-description">
+                            A homepage replica of Amazon, built with HTML & CSS, showcasing a modern and responsive UI.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://rishantyadav.github.io/Amazon-Clone/" class="project-link"><i class="fas fa-external-link-alt"></i> Live Preview</a>
+                            <a href="https://github.com/Rishantyadav/Amazon-Clone" class="project-link"><i class="fab fa-github"></i> Repo URL</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section fade-in" id="contact">
+            <h2>Let's Connect</h2>
+            <p>I'm currently available for freelance work, collaborations, or job opportunities. If you have a project that needs my skills or just want to say hi, feel free to reach out!</p>
+            <a href="mailto:rishant6166@gmail.com" class="cta"><i class="fas fa-envelope"></i> Get In Touch</a>
+        </section>
+    </div>
+
+    <footer id="social-connect">
+        <div class="social-links">
+            <a href="https://github.com/Rishantyadav" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/kianntwt" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/rishantyadav/" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>© 2025 Rishant Yadav. All rights reserved.</p>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="script.js"></script>
+</body>
+</html>
